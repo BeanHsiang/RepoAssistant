@@ -114,5 +114,29 @@ namespace RepoAssistant.Model
             }
             return sb.ToString();
         }
+
+        internal string ToAddColumnSql()
+        {
+            var sb = new StringBuilder();
+            foreach (var repo in CurrentRepos.Where(r => r.Selected))
+            {
+                sb.AppendLine();
+                sb.AppendLine();
+                sb.AppendLine(repo.ToAddColumnSql());
+            }
+            return sb.ToString();
+        }
+
+        internal string ToModifyColumnSql()
+        {
+            var sb = new StringBuilder();
+            foreach (var repo in CurrentRepos.Where(r => r.Selected))
+            {
+                sb.AppendLine();
+                sb.AppendLine();
+                sb.AppendLine(repo.ToModifyColumnSql());
+            }
+            return sb.ToString();
+        }
     }
 }

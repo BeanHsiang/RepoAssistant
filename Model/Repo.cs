@@ -63,7 +63,7 @@ namespace RepoAssistant.Model
             var sb = new StringBuilder();
             sb.AppendFormat("DROP TABLE IF EXISTS {0};", TableName);
             sb.AppendLine();
-            sb.AppendFormat("CREATE TABLE IF NOT EXISTS {0}; (", TableName);
+            sb.AppendFormat("CREATE TABLE IF NOT EXISTS {0} (", TableName);
             sb.AppendLine();
             var ie = RepoProperties.Where(r => r.Selected).GetEnumerator();
             if (ie.MoveNext())
@@ -79,6 +79,52 @@ namespace RepoAssistant.Model
 
             sb.AppendLine();
             sb.AppendLine(");");
+            return sb.ToString();
+        }
+
+        internal string ToAddColumnSql()
+        {
+            var sb = new StringBuilder();
+            sb.AppendFormat("ALTER TABLE {0}", TableName);
+            sb.AppendLine();
+
+            var ie = RepoProperties.Where(r => r.Selected).GetEnumerator();
+            if (ie.MoveNext())
+            {
+                sb.Append("ADD COLUMN ");
+                sb.Append(ie.Current.ToColumnSql());
+            }
+
+            while (ie.MoveNext())
+            {
+                sb.AppendLine(",");
+                sb.Append("ADD COLUMN ");
+                sb.Append(ie.Current.ToColumnSql());
+            }
+            sb.AppendLine(";");
+            return sb.ToString();
+        }
+
+        internal string ToModifyColumnSql()
+        {
+            var sb = new StringBuilder();
+            sb.AppendFormat("ALTER TABLE {0}", TableName);
+            sb.AppendLine();
+
+            var ie = RepoProperties.Where(r => r.Selected).GetEnumerator();
+            if (ie.MoveNext())
+            {
+                sb.Append("MODIFY COLUMN ");
+                sb.Append(ie.Current.ToColumnSql());
+            }
+
+            while (ie.MoveNext())
+            {
+                sb.AppendLine(",");
+                sb.Append("MODIFY COLUMN ");
+                sb.Append(ie.Current.ToColumnSql());
+            }
+            sb.AppendLine(";");
             return sb.ToString();
         }
     }

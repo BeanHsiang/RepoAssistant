@@ -60,8 +60,9 @@
             this.RbtnNotNull = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnCreateTables = new System.Windows.Forms.Button();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.RbtnModifyColumn = new System.Windows.Forms.RadioButton();
+            this.RbtnCreateTable = new System.Windows.Forms.RadioButton();
+            this.RbtnAddColumn = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -380,9 +381,10 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.RbtnAddColumn);
             this.panel3.Controls.Add(this.BtnCreateTables);
-            this.panel3.Controls.Add(this.radioButton11);
-            this.panel3.Controls.Add(this.radioButton10);
+            this.panel3.Controls.Add(this.RbtnModifyColumn);
+            this.panel3.Controls.Add(this.RbtnCreateTable);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 281);
             this.panel3.Name = "panel3";
@@ -399,27 +401,38 @@
             this.BtnCreateTables.UseVisualStyleBackColor = true;
             this.BtnCreateTables.Click += new System.EventHandler(this.BtnCreateTables_Click);
             // 
-            // radioButton11
+            // RbtnModifyColumn
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(124, 4);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(95, 16);
-            this.radioButton11.TabIndex = 1;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "Alter Column";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.RbtnModifyColumn.AutoSize = true;
+            this.RbtnModifyColumn.Location = new System.Drawing.Point(124, 36);
+            this.RbtnModifyColumn.Name = "RbtnModifyColumn";
+            this.RbtnModifyColumn.Size = new System.Drawing.Size(101, 16);
+            this.RbtnModifyColumn.TabIndex = 1;
+            this.RbtnModifyColumn.TabStop = true;
+            this.RbtnModifyColumn.Text = "Modify Column";
+            this.RbtnModifyColumn.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // RbtnCreateTable
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(8, 4);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(95, 16);
-            this.radioButton10.TabIndex = 0;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Create Table";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.RbtnCreateTable.AutoSize = true;
+            this.RbtnCreateTable.Location = new System.Drawing.Point(8, 4);
+            this.RbtnCreateTable.Name = "RbtnCreateTable";
+            this.RbtnCreateTable.Size = new System.Drawing.Size(95, 16);
+            this.RbtnCreateTable.TabIndex = 0;
+            this.RbtnCreateTable.TabStop = true;
+            this.RbtnCreateTable.Text = "Create Table";
+            this.RbtnCreateTable.UseVisualStyleBackColor = true;
+            // 
+            // RbtnAddColumn
+            // 
+            this.RbtnAddColumn.AutoSize = true;
+            this.RbtnAddColumn.Location = new System.Drawing.Point(8, 36);
+            this.RbtnAddColumn.Name = "RbtnAddColumn";
+            this.RbtnAddColumn.Size = new System.Drawing.Size(83, 16);
+            this.RbtnAddColumn.TabIndex = 3;
+            this.RbtnAddColumn.TabStop = true;
+            this.RbtnAddColumn.Text = "Add Column";
+            this.RbtnAddColumn.UseVisualStyleBackColor = true;
             // 
             // FrmRepoAssistant
             // 
@@ -487,10 +500,11 @@
         private System.Windows.Forms.RadioButton RbtnNull;
         private System.Windows.Forms.Button BtnApply;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton RbtnModifyColumn;
+        private System.Windows.Forms.RadioButton RbtnCreateTable;
         private System.Windows.Forms.Button BtnCreateTables;
         private System.Windows.Forms.Panel PnConstraint;
+        private System.Windows.Forms.RadioButton RbtnAddColumn;
 
     }
 }

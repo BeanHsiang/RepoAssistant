@@ -228,7 +228,18 @@ namespace RepoAssistant
 
         private void BtnCreateTables_Click(object sender, EventArgs e)
         {
-            TxtSql.Text = manager.ToCreateTablesSql();
-        }
+            if (RbtnCreateTable.Checked)
+            {
+                TxtSql.Text = manager.ToCreateTablesSql();
+            }
+            else if (RbtnAddColumn.Checked)
+            {
+                TxtSql.Text = manager.ToAddColumnSql();
+            }
+            else if (RbtnModifyColumn.Checked)
+            {
+                TxtSql.Text = manager.ToModifyColumnSql();
+            }
+        } 
     }
 }
