@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.PnConnection = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtFilePath = new System.Windows.Forms.TextBox();
             this.BtnSelectDllFile = new System.Windows.Forms.Button();
@@ -59,10 +59,11 @@
             this.RbtnNull = new System.Windows.Forms.RadioButton();
             this.RbtnNotNull = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.RbtnAddColumn = new System.Windows.Forms.RadioButton();
             this.BtnCreateTables = new System.Windows.Forms.Button();
             this.RbtnModifyColumn = new System.Windows.Forms.RadioButton();
             this.RbtnCreateTable = new System.Windows.Forms.RadioButton();
-            this.RbtnAddColumn = new System.Windows.Forms.RadioButton();
+            this.BtnExcute = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,7 +75,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.PnConnection);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TxtFilePath);
             this.panel1.Controls.Add(this.BtnSelectDllFile);
@@ -84,13 +85,13 @@
             this.panel1.Size = new System.Drawing.Size(1008, 40);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // PnConnection
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(594, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(414, 40);
-            this.panel2.TabIndex = 3;
+            this.PnConnection.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnConnection.Location = new System.Drawing.Point(594, 0);
+            this.PnConnection.Name = "PnConnection";
+            this.PnConnection.Size = new System.Drawing.Size(414, 40);
+            this.PnConnection.TabIndex = 3;
             // 
             // label1
             // 
@@ -381,6 +382,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.BtnExcute);
             this.panel3.Controls.Add(this.RbtnAddColumn);
             this.panel3.Controls.Add(this.BtnCreateTables);
             this.panel3.Controls.Add(this.RbtnModifyColumn);
@@ -391,9 +393,20 @@
             this.panel3.Size = new System.Drawing.Size(276, 94);
             this.panel3.TabIndex = 3;
             // 
+            // RbtnAddColumn
+            // 
+            this.RbtnAddColumn.AutoSize = true;
+            this.RbtnAddColumn.Location = new System.Drawing.Point(8, 36);
+            this.RbtnAddColumn.Name = "RbtnAddColumn";
+            this.RbtnAddColumn.Size = new System.Drawing.Size(83, 16);
+            this.RbtnAddColumn.TabIndex = 3;
+            this.RbtnAddColumn.TabStop = true;
+            this.RbtnAddColumn.Text = "Add Column";
+            this.RbtnAddColumn.UseVisualStyleBackColor = true;
+            // 
             // BtnCreateTables
             // 
-            this.BtnCreateTables.Location = new System.Drawing.Point(124, 64);
+            this.BtnCreateTables.Location = new System.Drawing.Point(82, 68);
             this.BtnCreateTables.Name = "BtnCreateTables";
             this.BtnCreateTables.Size = new System.Drawing.Size(75, 23);
             this.BtnCreateTables.TabIndex = 2;
@@ -423,16 +436,15 @@
             this.RbtnCreateTable.Text = "Create Table";
             this.RbtnCreateTable.UseVisualStyleBackColor = true;
             // 
-            // RbtnAddColumn
+            // BtnExcute
             // 
-            this.RbtnAddColumn.AutoSize = true;
-            this.RbtnAddColumn.Location = new System.Drawing.Point(8, 36);
-            this.RbtnAddColumn.Name = "RbtnAddColumn";
-            this.RbtnAddColumn.Size = new System.Drawing.Size(83, 16);
-            this.RbtnAddColumn.TabIndex = 3;
-            this.RbtnAddColumn.TabStop = true;
-            this.RbtnAddColumn.Text = "Add Column";
-            this.RbtnAddColumn.UseVisualStyleBackColor = true;
+            this.BtnExcute.Location = new System.Drawing.Point(173, 68);
+            this.BtnExcute.Name = "BtnExcute";
+            this.BtnExcute.Size = new System.Drawing.Size(75, 23);
+            this.BtnExcute.TabIndex = 4;
+            this.BtnExcute.Text = "执  行";
+            this.BtnExcute.UseVisualStyleBackColor = true;
+            this.BtnExcute.Click += new System.EventHandler(this.BtnExcute_Click);
             // 
             // FrmRepoAssistant
             // 
@@ -481,7 +493,7 @@
         private System.Windows.Forms.CheckedListBox ClbProperty;
         private System.Windows.Forms.GroupBox GbProperty;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel PnConnection;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox TxtVarchar;
         private System.Windows.Forms.TextBox TxtBigInt;
@@ -505,6 +517,7 @@
         private System.Windows.Forms.Button BtnCreateTables;
         private System.Windows.Forms.Panel PnConstraint;
         private System.Windows.Forms.RadioButton RbtnAddColumn;
+        private System.Windows.Forms.Button BtnExcute;
 
     }
 }

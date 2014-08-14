@@ -11,6 +11,8 @@ using RepoAssistant.Model;
 
 namespace RepoAssistant
 {
+    using MySql.Data.MySqlClient;
+
     public partial class FrmRepoAssistant : Form
     {
         private RepoManager manager;
@@ -45,7 +47,7 @@ namespace RepoAssistant
                 {
                     var rbtConnection = new RadioButton() { Text = connection.Name };
                     rbtConnection.Dock = DockStyle.Left;
-                    panel2.Controls.Add(rbtConnection);
+                    PnConnection.Controls.Add(rbtConnection);
                 }
             }
         }
@@ -240,6 +242,39 @@ namespace RepoAssistant
             {
                 TxtSql.Text = manager.ToModifyColumnSql();
             }
-        } 
+        }
+
+        private void BtnExcute_Click(object sender, EventArgs e)
+        {
+            var conStr = string.Empty;
+            foreach (var control in PnConnection.Controls)
+            {
+                if (control is RadioButton && (control as RadioButton).Checked)
+                {
+                    conStr = ConfigurationManager.ConnectionStrings[(control as RadioButton).Text].ConnectionString;
+                    break;
+                }
+            }
+
+            if (string.IsNullOrEmpty(conStr))
+            {
+                MessageBox.Show("请选择数据库连接");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtSql.Text))
+            {
+                MessageBox.Show("请生成sql脚本");
+                return;
+            }
+
+            using (var con = new MySqlConnection(conStr))
+            {
+                con.Open();
+                var cmd = new MySqlCommand(TxtSql.Text, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }
