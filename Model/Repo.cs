@@ -52,7 +52,7 @@ namespace RepoAssistant.Model
                 }
             }
 
-            foreach (var repoProperty in RepoProperties.Where(p => !repoPropertyNames.Contains(p.Name)))
+            foreach (var repoProperty in RepoProperties.Where(p => !repoPropertyNames.Contains(p.Name)).ToArray())
             {
                 RepoProperties.Remove(repoProperty);
             }

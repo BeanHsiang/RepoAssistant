@@ -59,11 +59,12 @@
             this.RbtnNull = new System.Windows.Forms.RadioButton();
             this.RbtnNotNull = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnExcute = new System.Windows.Forms.Button();
             this.RbtnAddColumn = new System.Windows.Forms.RadioButton();
             this.BtnCreateTables = new System.Windows.Forms.Button();
             this.RbtnModifyColumn = new System.Windows.Forms.RadioButton();
             this.RbtnCreateTable = new System.Windows.Forms.RadioButton();
-            this.BtnExcute = new System.Windows.Forms.Button();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BtnRefresh);
             this.panel1.Controls.Add(this.PnConnection);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TxtFilePath);
@@ -107,7 +109,7 @@
             this.TxtFilePath.Location = new System.Drawing.Point(84, 8);
             this.TxtFilePath.Name = "TxtFilePath";
             this.TxtFilePath.ReadOnly = true;
-            this.TxtFilePath.Size = new System.Drawing.Size(432, 21);
+            this.TxtFilePath.Size = new System.Drawing.Size(345, 21);
             this.TxtFilePath.TabIndex = 1;
             // 
             // BtnSelectDllFile
@@ -393,6 +395,16 @@
             this.panel3.Size = new System.Drawing.Size(276, 94);
             this.panel3.TabIndex = 3;
             // 
+            // BtnExcute
+            // 
+            this.BtnExcute.Location = new System.Drawing.Point(173, 68);
+            this.BtnExcute.Name = "BtnExcute";
+            this.BtnExcute.Size = new System.Drawing.Size(75, 23);
+            this.BtnExcute.TabIndex = 4;
+            this.BtnExcute.Text = "执  行";
+            this.BtnExcute.UseVisualStyleBackColor = true;
+            this.BtnExcute.Click += new System.EventHandler(this.BtnExcute_Click);
+            // 
             // RbtnAddColumn
             // 
             this.RbtnAddColumn.AutoSize = true;
@@ -436,15 +448,15 @@
             this.RbtnCreateTable.Text = "Create Table";
             this.RbtnCreateTable.UseVisualStyleBackColor = true;
             // 
-            // BtnExcute
+            // BtnRefresh
             // 
-            this.BtnExcute.Location = new System.Drawing.Point(173, 68);
-            this.BtnExcute.Name = "BtnExcute";
-            this.BtnExcute.Size = new System.Drawing.Size(75, 23);
-            this.BtnExcute.TabIndex = 4;
-            this.BtnExcute.Text = "执  行";
-            this.BtnExcute.UseVisualStyleBackColor = true;
-            this.BtnExcute.Click += new System.EventHandler(this.BtnExcute_Click);
+            this.BtnRefresh.Location = new System.Drawing.Point(436, 8);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.BtnRefresh.TabIndex = 4;
+            this.BtnRefresh.Text = "刷  新";
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // FrmRepoAssistant
             // 
@@ -518,6 +530,7 @@
         private System.Windows.Forms.Panel PnConstraint;
         private System.Windows.Forms.RadioButton RbtnAddColumn;
         private System.Windows.Forms.Button BtnExcute;
+        private System.Windows.Forms.Button BtnRefresh;
 
     }
 }

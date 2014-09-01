@@ -276,5 +276,11 @@ namespace RepoAssistant
                 con.Close();
             }
         }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            if (manager != null)
+                BindClbRepo();
+        }
     }
 }
